@@ -1,0 +1,107 @@
+//*Color variables
+$prime: orange;
+$second: #0c1016;
+$blueTone: cornflowerblue;
+$redTone: #ff00aa;
+$lightTone: whitesmoke;
+
+//*Size variables
+$headerHeight: 6rem;
+$footerHeight: 12rem;
+
+//*write less code variables
+@mixin flexJustifyAlignCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  @include flexJustifyAlignCenter();
+  color: $second;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2392a4ac' fill-opacity='0.26'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  padding: $headerHeight 0 0 0;
+  min-height: 100vh;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  .AppHeader {
+    width: 100%;
+    height: $headerHeight;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: $lightTone;
+    background-color: $blueTone;
+    z-index: 2;
+    box-shadow: 0px 2px 3px gray;
+    @include flexJustifyAlignCenter();
+  }
+  .AppContent {
+    width: 100vw;
+    @include flexJustifyAlignCenter();
+    flex-direction: column;
+    article {
+      width: 85%;
+      min-height: calc(100vh - $headerHeight - $footerHeight);
+    }
+  }
+  .AppFooter {
+    width: 100vw;
+    background-color: $prime;
+    min-height: $footerHeight;
+    flex-direction: column;
+    @include flexJustifyAlignCenter();
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.Editor {
+  margin: 21px 42px;
+  border: 1px solid black;
+  .menu {
+    @include flexJustifyAlignCenter();
+    border-bottom: 1px solid #00000042;
+    background-color: $prime;
+    button {
+      padding: 1rem;
+      border: none;
+      background-color: #00000042;
+      font-size: 2rem;
+      &:hover {
+        background-color: $prime;
+        color: $lightTone;
+      }
+    }
+  }
+  .view {
+    height: 32rem;
+    padding: 1rem;
+    &:focus {
+      outline: none;
+    }
+  }
+}
